@@ -18,13 +18,11 @@ class TPQueue {
     arr[(prl + 1) % size] = x;
     last++;
   }
-
   T pop() {
-   if (first < last) {
-    return arr[(first++) % size];
-   }
+    if (first < last) {
+      return arr[(first++) % size];
+    }
   }
-
   int getSize() {
     return (last - first);
   }
