@@ -4,14 +4,13 @@
 
 template<typename T, int size>
 class TPQueue {
-  // реализация шаблона очереди с приоритетом на кольцевом буфере
  private:
-  T arr[size];
+  T arr[100];
   int first, last;
 
  public:
   TPQueue() : first(0), last(0) {};
-  void push (T x) {
+  void push(T x) {
     int prl = last;
     while ((--prl >= first) && (x.prior > arr[prl % size].prior)) {
         arr[(prl + 1) % size] = arr[prl % size];
@@ -19,11 +18,12 @@ class TPQueue {
     arr[(prl + 1) % size] = x;
     last++;
   };
+
   T pop() {
    if (first < last)
     return arr[(first++) % size];
-   return 0;
   };
+
   int getSize() {
     return (last - first);
     };
