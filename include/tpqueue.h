@@ -9,7 +9,7 @@ class TPQueue {
   int first, last;
 
  public:
-  TPQueue() : first(0), last(0) {};
+  TPQueue() : first(0), last(0) {}
   void push(T x) {
     int prl = last;
     while ((--prl >= first) && (x.prior > arr[prl % size].prior)) {
@@ -17,16 +17,17 @@ class TPQueue {
     }
     arr[(prl + 1) % size] = x;
     last++;
-  };
+  }
 
   T pop() {
-   if (first < last)
+   if (first < last) {
     return arr[(first++) % size];
-  };
+   }
+  }
 
   int getSize() {
     return (last - first);
-    };
+  }
 };
 
 struct SYM {
